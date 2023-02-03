@@ -1,0 +1,3 @@
+- flash.each do |key, message|
+  .div class="alert alert-#{flash_to_alert(key)}" role="alert"
+    = sanitize(message)
