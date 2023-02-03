@@ -1,0 +1,16 @@
+= turbo_stream_from @chat
+
+= turbo_frame_tag :messages do
+  = render partial: "messages/message", collection: @messages, locals: { current_user: current_user }
+
+- if user_signed_in?
+  = form_with model: @new_message, class: "form-group row" do |f|
+    . class="form-group row"
+      . class="col-sm-6"
+        = f.text_field :body, class: "form-control"
+      . class="col-sm-6"
+        = f.hidden_field :chat_id, value: @chat.id
+
+    . class="form-group row"
+      . class="col-sm-6"
+        = f.submit 'Send message', class: "btn btn-outline-success"

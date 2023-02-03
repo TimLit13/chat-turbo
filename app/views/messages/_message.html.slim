@@ -1,0 +1,4 @@
+. class="#{message&.user_id == current_user&.id ? "card border-success mb-3" : "card border-dark mb-3" }" style="max-width: 18rem;"
+  . class="card-header" #{message.user.email} at #{l(message.created_at, format: :short)} 
+  . class="#{message&.user_id == current_user&.id ? "card-body text-success" : "card-body text-dark" }"
+    .p class="card-text" #{message.body}
