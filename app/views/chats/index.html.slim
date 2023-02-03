@@ -1,0 +1,15 @@
+= turbo_stream_from :chats
+
+= turbo_frame_tag :chats do
+  = render @chats
+
+- if user_signed_in?
+  = form_with model: @new_chat, class: "form-group row" do |f|
+    . class="form-group row"
+      = f.label :title, class: "col-sm-1 col-form-label"
+      . class="col-sm-6"
+        = f.text_field :title, class: "form-control"
+
+    . class="form-group row"
+      . class="col-sm-6"
+        = f.submit 'Create new chat', class: "btn btn-outline-success"
